@@ -1,8 +1,5 @@
 package com.jason.myjavatrips;
-import java.math.BigDecimal;
-
 import com.alibaba.fastjson.JSONObject;
-import com.jd.open.api.sdk.domain.mall.http.PriceChange;
 
 /** 
  * @author Jason
@@ -23,13 +20,16 @@ public class TestInteger
 //		System.out.println(new BigDecimal(string).setScale(0));
 		Integer price = 12900000 / 1000 * 100 * 1000 / 1000;
 		System.out.println(price);
-		TestClass testClass = new TestClass();
+		TestExtendClass testClass = new TestExtendClass();
 		testClass.setName("Jason");
 		String classStr = JSONObject.toJSONString(testClass);
-		TestClass testClass1 = JSONObject.parseObject(classStr,TestClass.class);
+		TestExtendClass testClass1 = JSONObject.parseObject(classStr,TestExtendClass.class);
 		testClass1.setName("Mike");
 		System.out.println(JSONObject.toJSONString(testClass));
 		System.out.println(JSONObject.toJSONString(testClass1));
+		Integer integer = 1;
+		Integer integer2 = null;
+		System.out.println(integer2 == integer);
 	}
 }
 

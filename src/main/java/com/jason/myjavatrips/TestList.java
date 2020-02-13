@@ -54,6 +54,16 @@ public class TestList {
 		System.out.println(test.toString());
 		test.getFriends().sort(Comparator.comparing(Friend::getFriendAge).reversed());
 		System.out.println(test.toString());
+		// 结论：0 和 -1 是 不需要换位置的，1是需要换位置的
+		test.getFriends().sort((a,b) -> {
+			if(a.getFriendAge() > b.getFriendAge()) {
+				return 1;
+			}else if(a.getFriendAge() < b.getFriendAge()) {
+				return -1;
+			}
+			return 0;
+		});
+		System.out.println("*********" + test.toString());
 		test.setFriends(
 				test.getFriends().stream().filter(s -> s.getBeautiful().equals(true)).collect(Collectors.toList()));
 		System.out.println(test.toString());

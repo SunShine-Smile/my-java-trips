@@ -31,6 +31,7 @@ public class testJson
 		System.out.println(getIntFromStr("8:08"));
 		System.out.println("".equals(null));
 		System.out.println("  12  123  ".trim());
+		System.out.println(Math.round(-1.5));
 		
 	}
 	

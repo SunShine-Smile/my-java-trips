@@ -2,6 +2,7 @@ package com.jason.myjavatrips;
 import java.util.Enumeration;
 import java.util.StringTokenizer;
 
+
 //import org.apache.catalina.startup.RealmRuleSet;
 
 public class TestFor {
@@ -22,7 +23,7 @@ public class TestFor {
          	String integer = "6";
          	test123123(integer);
          	System.out.println(integer);
-
+         	System.out.println(String.format("mac:areaCode:%s:areaId:%d:", "a",1,3 ));
        }
       
       private static String test123123(String integer){

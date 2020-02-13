@@ -20,10 +20,10 @@ public class TestInteger
 //		System.out.println(new BigDecimal(string).setScale(0));
 		Integer price = 12900000 / 1000 * 100 * 1000 / 1000;
 		System.out.println(price);
-		TestExtendClass testClass = new TestExtendClass();
+		TestClass testClass = new TestClass();
 		testClass.setName("Jason");
 		String classStr = JSONObject.toJSONString(testClass);
-		TestExtendClass testClass1 = JSONObject.parseObject(classStr,TestExtendClass.class);
+		TestClass testClass1 = JSONObject.parseObject(classStr,TestClass.class);
 		testClass1.setName("Mike");
 		System.out.println(JSONObject.toJSONString(testClass));
 		System.out.println(JSONObject.toJSONString(testClass1));

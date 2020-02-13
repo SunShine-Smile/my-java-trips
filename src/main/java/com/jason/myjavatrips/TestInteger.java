@@ -46,5 +46,4 @@ class TestClass{
 	{
 		this.name = name;
 	}
-	
 }

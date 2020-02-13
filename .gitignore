@@ -25,5 +25,5 @@ Thumbs.db
 
 target/
 logs/
-mac-logs/
+.factorypath
 

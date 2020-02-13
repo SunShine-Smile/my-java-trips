@@ -1,7 +1,6 @@
 package com.jason.algorithm;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @desc 从尾到头打印链表

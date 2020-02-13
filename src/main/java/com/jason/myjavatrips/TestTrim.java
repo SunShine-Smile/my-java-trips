@@ -19,6 +19,10 @@ public class TestTrim
 		System.out.println(dp[6]);
 		int i = (int)Math.pow(2, 5);
 		System.out.println(i);
+		i= (int)Math.floor(2.5);
+		System.out.println(i);
+		i= (int)Math.round(2.5);
+		System.out.println(i);
 	}
 	
 	public static String myTest() {

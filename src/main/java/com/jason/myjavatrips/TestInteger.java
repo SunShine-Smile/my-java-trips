@@ -1,6 +1,8 @@
 package com.jason.myjavatrips;
 import com.alibaba.fastjson.JSONObject;
 
+import java.util.List;
+
 /** 
  * @author Jason
  * @time   2017年8月17日 下午8:11:10 
@@ -18,7 +20,9 @@ public class TestInteger
 //		
 //		String string = "100.00";
 //		System.out.println(new BigDecimal(string).setScale(0));
-		Integer price = 12900000 / 1000 * 100 * 1000 / 1000;
+		float price = 12900000 / (1000 * 100 * 1000f) / 1000;
+		System.out.println(price);
+		price = 12900000 / (1000 * 100 * 1000) / 1000f;
 		System.out.println(price);
 		TestClass testClass = new TestClass();
 		testClass.setName("Jason");
@@ -30,6 +34,8 @@ public class TestInteger
 		Integer integer = 1;
 		Integer integer2 = null;
 		System.out.println(integer2 == integer);
+		List<TestClass> testClassList = null;
+		testClassList.forEach(System.out::println);
 	}
 }
 

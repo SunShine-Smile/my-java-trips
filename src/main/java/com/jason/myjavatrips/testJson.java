@@ -32,6 +32,16 @@ public class testJson
 		System.out.println("".equals(null));
 		System.out.println("  12  123  ".trim());
 		System.out.println(Math.round(-1.5));
+		int score = 70;
+		switch (score) {
+			case 70:
+				System.out.println("Great score!");
+			case 50:
+				System.out.println("Pass score");
+			default:
+				System.out.println("Unknown score");
+		}
+
 		
 	}
 	

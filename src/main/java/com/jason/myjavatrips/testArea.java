@@ -17,6 +17,15 @@ public class testArea
 		Integer integer = 1;
 		Integer i = 2;
 		System.out.println(integer > i);
+
+		int j = 0;
+		testArea testArea1 = new testArea();
+		testArea1.increment(j);
+		j++;
+		System.out.println(j);
 	}
 
+	void increment(int index) {
+		 index++;
+	}
 }

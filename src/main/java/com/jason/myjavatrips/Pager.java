@@ -1,21 +1,21 @@
 package com.jason.myjavatrips;
+
 import java.io.Serializable;
 import java.util.List;
 
-/** 
+/**
  * @author Jason
- * @email  
- * @time   2017年5月2日 上午11:23:19 
+ * @email
+ * @time 2017年5月2日 上午11:23:19
  */
-public class Pager<T> implements Serializable
-{
+public class Pager<T> implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1L;
+
+    /**
      * currentPage 当前页
      */
     private int currentPage = 1;
@@ -53,60 +53,16 @@ public class Pager<T> implements Serializable
     private List<T> content;
 
     // 以下set方式是需要赋值的
-    /**
-     * 设置当前页 <br>
-     * 
-     * @author kangxu
-     * 
-     * @param currentPage
-     */
-    public void setCurrentPage(int currentPage) {
-        this.currentPage = currentPage;
-    }
-
-    /**
-     * 设置每页大小,也可以不用赋值,默认大小为10条 <br>
-     * 
-     * @author kangxu
-     * 
-     * @param pageSize
-     */
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    /**
-     * 设置总条数,默认为0 <br>
-     * 
-     * @author kangxu
-     * 
-     * @param recordTotal
-     */
-    public void setRecordTotal(int recordTotal) {
-        this.recordTotal = recordTotal;
-        otherAttr();
-    }
-
-    /**
-     * 设置分页内容 <br>
-     * 
-     * @author kangxu
-     * 
-     * @param content
-     */
-    public void setContent(List<T> content) {
-        this.content = content;
-    }
 
     /**
      * 设置其他参数
-     * 
+     *
      * @author kangxu
-     * 
      */
     public void otherAttr() {
         // 总页数
-        this.pageTotal = this.recordTotal % this.pageSize > 0 ? this.recordTotal / this.pageSize + 1 : this.recordTotal / this.pageSize;
+        this.pageTotal = this.recordTotal % this.pageSize > 0 ?
+                this.recordTotal / this.pageSize + 1 : this.recordTotal / this.pageSize;
         // 第一页
         this.firstPage = 1;
         // 最后一页
@@ -130,8 +86,28 @@ public class Pager<T> implements Serializable
         return currentPage;
     }
 
+    /**
+     * 设置当前页 <br>
+     *
+     * @param currentPage
+     * @author kangxu
+     */
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
     public int getPageSize() {
         return pageSize;
+    }
+
+    /**
+     * 设置每页大小,也可以不用赋值,默认大小为10条 <br>
+     *
+     * @param pageSize
+     * @author kangxu
+     */
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 
     public int getPageTotal() {
@@ -140,6 +116,17 @@ public class Pager<T> implements Serializable
 
     public int getRecordTotal() {
         return recordTotal;
+    }
+
+    /**
+     * 设置总条数,默认为0 <br>
+     *
+     * @param recordTotal
+     * @author kangxu
+     */
+    public void setRecordTotal(int recordTotal) {
+        this.recordTotal = recordTotal;
+        otherAttr();
     }
 
     public int getPreviousPage() {
@@ -162,13 +149,23 @@ public class Pager<T> implements Serializable
         return content;
     }
 
+    /**
+     * 设置分页内容 <br>
+     *
+     * @param content
+     * @author kangxu
+     */
+    public void setContent(List<T> content) {
+        this.content = content;
+    }
+
     @Override
     public String toString() {
         return "Pager [currentPage=" + currentPage + ", pageSize=" + pageSize
-                + ", pageTotal=" + pageTotal + ", recordTotal=" + recordTotal
-                + ", previousPage=" + previousPage + ", nextPage=" + nextPage
-                + ", firstPage=" + firstPage + ", lastPage=" + lastPage
-                + ", content=" + content + "]";
+               + ", pageTotal=" + pageTotal + ", recordTotal=" + recordTotal
+               + ", previousPage=" + previousPage + ", nextPage=" + nextPage
+               + ", firstPage=" + firstPage + ", lastPage=" + lastPage
+               + ", content=" + content + "]";
     }
 
 }

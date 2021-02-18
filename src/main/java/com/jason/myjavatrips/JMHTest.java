@@ -1,7 +1,5 @@
 package com.jason.myjavatrips;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Mode;
@@ -11,8 +9,10 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+import java.util.concurrent.TimeUnit;
+
 public class JMHTest {
-	/*
+    /*
      * JMH generates lots of synthetic code for the benchmarks for you during
      * the benchmark compilation. JMH can measure the benchmark methods in lots
      * of modes. Users may select the default benchmark mode with a special
@@ -42,11 +42,13 @@ public class JMHTest {
      * although you can use the default.
      */
 
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    @OutputTimeUnit(TimeUnit.SECONDS)
-    public void measureThroughput() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(100);
+    public static void main(String[] args) throws RunnerException {
+        Options opt = new OptionsBuilder()
+                .include(JMHTest.class.getSimpleName())
+                .forks(1)
+                .build();
+
+        new Runner(opt).run();
     }
 
     /*
@@ -56,6 +58,13 @@ public class JMHTest {
      * Some might say it is the reciprocal throughput, and it really is.
      * There are workloads where measuring times is more convenient though.
      */
+
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    @OutputTimeUnit(TimeUnit.SECONDS)
+    public void measureThroughput() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(100);
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
@@ -99,6 +108,10 @@ public class JMHTest {
     }
 
     /*
+     * Or even...
+     */
+
+    /*
      * We can also ask for multiple benchmark modes at once. All the tests
      * above can be replaced with just a single test like this:
      */
@@ -106,17 +119,6 @@ public class JMHTest {
     @BenchmarkMode({Mode.Throughput, Mode.AverageTime, Mode.SampleTime, Mode.SingleShotTime})
     @OutputTimeUnit(TimeUnit.MICROSECONDS)
     public void measureMultiple() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(100);
-    }
-
-    /*
-     * Or even...
-     */
-
-    @Benchmark
-    @BenchmarkMode(Mode.All)
-    @OutputTimeUnit(TimeUnit.MICROSECONDS)
-    public void measureAll() throws InterruptedException {
         TimeUnit.MILLISECONDS.sleep(100);
     }
 
@@ -138,13 +140,11 @@ public class JMHTest {
      *      http://openjdk.java.net/projects/code-tools/jmh/)
      */
 
-    public static void main(String[] args) throws RunnerException {
-        Options opt = new OptionsBuilder()
-                .include(JMHTest.class.getSimpleName())
-                .forks(1)
-                .build();
-
-        new Runner(opt).run();
+    @Benchmark
+    @BenchmarkMode(Mode.All)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void measureAll() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(100);
     }
 
 }

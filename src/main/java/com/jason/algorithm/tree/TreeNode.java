@@ -9,15 +9,15 @@ import lombok.ToString;
 @ToString
 public class TreeNode {
 
-	private int value;
-	private TreeNode left;
-	private TreeNode right;
-	
-	public TreeNode() {
-		
-	}
-	
-	public TreeNode(int value) {
-		this.value = value;
-	}
+    private int value;
+    private TreeNode left;
+    private TreeNode right;
+
+    public TreeNode() {
+
+    }
+
+    public TreeNode(int value) {
+        this.value = value;
+    }
 }

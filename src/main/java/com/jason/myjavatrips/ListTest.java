@@ -3,6 +3,7 @@ package com.jason.myjavatrips;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,12 +42,12 @@ public class ListTest {
         Friend friend2 = new Friend();
         friend2.setFriendAge(6);
         friend2.setFriendName("name6");
-        friend.setBeautiful(false);
+        friend2.setBeautiful(false);
         friends.add(friend2);
         Friend friend3 = new Friend();
         friend3.setFriendAge(1);
         friend3.setFriendName("name1");
-        friend.setBeautiful(true);
+        friend3.setBeautiful(true);
         friends.add(friend3);
         test.setFriends(friends);
 
@@ -84,6 +85,26 @@ public class ListTest {
         intList.add(12);
         System.out.println(intList.contains(12));
 
+        // 不要在foreach循环里进行元素的remove/add操作。remove元素请使用Iterator方式，如果并发操作，需要对Iterator对象加锁。
+        List<String> stringList = new ArrayList<>();
+        stringList.add("1");
+        stringList.add("2");
+        // 反例 会报ConcurrentModificationException
+        // for (String item : stringList) {
+        //     if ("1".equals(item)) {
+        //         stringList.remove(item);
+        //     }
+        // }
+
+        // 正例
+        Iterator<String> iterator = stringList.iterator();
+        while (iterator.hasNext()) {
+            String item = iterator.next();
+            if ("1".equals(item)) {
+                iterator.remove();
+            }
+        }
+        System.out.println(stringList.toString());
     }
 
     public static void myMethod(List<MyTest> myTests) {

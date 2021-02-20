@@ -2,6 +2,8 @@ package com.jason.myjavatrips;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -23,7 +25,9 @@ public class MapTest1 {
         System.out.println(b == i);
 //		System.out.println(i);
         String str = "2016-06-30 00:00:00";
+        // 如果是JDK8的应用，可以使用Instant代替Date，LocalDateTime代替Calendar，DateTimeFormatter代替SimpleDateFormat，官方给出的解释：simple beautiful strong immutable thread-safe。
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(str));
+        System.out.println(LocalDateTime.parse(str, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
         System.out.println(new Date());
     }
 }
